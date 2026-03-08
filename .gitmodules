@@ -1,0 +1,12 @@
+[submodule "Engine/SDL/SDL_mixer"]
+	path = Engine/SDL/SDL_mixer
+	url = https://github.com/libsdl-org/SDL_mixer
+[submodule "Engine/SDL/SDL"]
+	path = Engine/SDL/SDL
+	url = https://github.com/libsdl-org/SDL
+[submodule "Engine/SDL/SDL_image"]
+	path = Engine/SDL/SDL_image
+	url = https://github.com/libsdl-org/SDL_image
+[submodule "Engine/SDL/SDL_ttf"]
+	path = Engine/SDL/SDL_ttf
+	url = https://github.com/libsdl-org/SDL_ttf
