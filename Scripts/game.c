@@ -33,8 +33,8 @@ static void game_loop(Engine *engine){
 
         render_set_draw_color(engine->renderer, 99, 200,120,255);
         render_clear(engine->renderer);
-        render_present(engine->renderer);
         SceneManager_currentScene_Render(&scenemanager, engine);
+        render_present(engine->renderer);
     }
 }
 
