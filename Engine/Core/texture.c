@@ -127,6 +127,24 @@ void Texture_render(Texture *texture, SDL_Renderer *renderer, SDL_FRect *clip,
                              center, flip);
 }
 
+void Texture_render_with_camera(Texture *texture, SDL_Renderer *renderer, Camera* cam, SDL_FRect *clip,
+                    SDL_FRect *pos, double angle, SDL_FPoint *center,
+                    SDL_FlipMode flip) {
+    if (pos == NULL){
+      if(check_collision_FRect(&(FRect){cam->x,cam->y,cam->w,cam->h}, &(FRect){texture->x,texture->y,texture->width,texture->height})){
+        printf("Texture in frame. Rendering \n");
+        SDL_RenderTextureRotated(renderer, texture->texture, clip, &(SDL_FRect){texture->x-cam->x, texture->y-cam->y, texture->width, texture->height},
+                             angle, center, flip);
+      }
+    }
+    else{
+      if(check_collision_FRect(&(FRect){cam->x,cam->y,cam->w,cam->h}, &(FRect){pos->x,pos->y,pos->w,pos->h})){
+        printf("Texture in frame. Rendering \n");
+        SDL_RenderTextureRotated(renderer, texture->texture, clip, &(SDL_FRect){pos->x-cam->x,pos->y-cam->y,pos->w,pos->h}, angle,
+                             center, flip);
+      }
+  }
+}
 // Get texture width
 int Texture_getWidth(Texture *texture) { return texture->width; }
 

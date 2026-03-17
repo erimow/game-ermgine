@@ -1,9 +1,12 @@
+#ifndef TEXTURE_H
+#define TEXTURE_H
+
+#include <stdio.h>
 #include <SDL3/SDL.h>
 #include <SDL3_image/SDL_image.h>
 #include <SDL3_ttf/SDL_ttf.h>
-
-#ifndef TEXTURE_H
-#define TEXTURE_H
+#include "../Other/camera.h"
+#include "../Other/utils.h"
 
 typedef struct {
   SDL_Texture *texture;
@@ -27,6 +30,9 @@ void Texture_setColor(Texture *texture, Uint8 red, Uint8 green, Uint8 blue);
 void Texture_setBlendMode(Texture *texture, SDL_BlendMode blending);
 void Texture_setAlpha(Texture *texture, Uint8 alpha);
 void Texture_render(Texture *texture, SDL_Renderer *renderer, SDL_FRect *clip,
+                    SDL_FRect *pos, double angle, SDL_FPoint *center,
+                    SDL_FlipMode flip);
+void Texture_render_with_camera(Texture *texture, SDL_Renderer *renderer, Camera *cam, SDL_FRect *clip,
                     SDL_FRect *pos, double angle, SDL_FPoint *center,
                     SDL_FlipMode flip);
 int Texture_getWidth(Texture *texture);

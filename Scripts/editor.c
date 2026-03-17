@@ -50,8 +50,8 @@ static void editor_render(Engine *engine){
     SDL_RenderFillRect(engine->renderer,&(SDL_FRect){
         500-cam.x, 500-cam.y, 30, 30
     });
-    Texture_render(&test, engine->renderer, NULL, &(SDL_FRect){800-cam.x, 1000-cam.y, 300, 300},0.0,NULL,SDL_FLIP_NONE);
-    e_overlay_render(engine);
+    Texture_render_with_camera(&test, engine->renderer, &cam, NULL, &(SDL_FRect){800, 1000, 300, 300},0.0,NULL,SDL_FLIP_NONE);
+    e_overlay_render(engine); //render editor overlay
 }
 
 static void editor_stop(){
